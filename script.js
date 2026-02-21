@@ -5,6 +5,16 @@ const respuestaTxt = document.getElementById('respuesta-pro');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight * 0.7;
 
+// Esto asegura que detecte el toque tanto en PC como en Celular
+document.addEventListener('click', () => {
+    mostrarSorpresa();
+});
+
+// Opcional: También para pantallas táctiles específicamente
+document.addEventListener('touchstart', () => {
+    mostrarSorpresa();
+});
+
 const frases = [
     "🔥 Un beso largo que nos deje sin aliento...",
     "😏 Uno de esos que terminan en la cama.",

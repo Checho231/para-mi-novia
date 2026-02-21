@@ -1,3 +1,30 @@
+
+/* Asegúrate de que el contenedor ocupe todo */
+.container {
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Evita que el canvas bloquee el clic */
+canvas {
+    pointer-events: none; /* Esto hace que el clic "atraviese" el dibujo y llegue al div */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.message {
+    z-index: 20; /* Ponemos los mensajes por encima de todo */
+    text-align: center;
+}
+
 .badge {
     display: inline-block;
     background: #ff4d6d;
