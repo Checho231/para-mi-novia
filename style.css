@@ -1,60 +1,76 @@
+body {
+    margin: 0;
+    background: #0f0f0f; /* Negro profundo para que resalten los colores */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+}
 
-/* Asegúrate de que el contenedor ocupe todo */
-.container {
-    width: 100vw;
-    height: 100vh;
-    cursor: pointer;
+.ui-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 10;
+    background: rgba(0, 0, 0, 0.4); /* Capa oscura para resaltar botones */
 }
 
-/* Evita que el canvas bloquee el clic */
-canvas {
-    pointer-events: none; /* Esto hace que el clic "atraviese" el dibujo y llegue al div */
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.message {
-    z-index: 20; /* Ponemos los mensajes por encima de todo */
+h1 {
     text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #ff4d6d;
 }
 
-.badge {
-    display: inline-block;
-    background: #ff4d6d;
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+.btn-pro {
+    background: rgba(255, 77, 109, 0.2);
+    border: 2px solid #ff4d6d;
     color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
+    padding: 15px;
+    border-radius: 15px;
     font-weight: bold;
-    margin-top: 15px;
-    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-    transition: all 0.3s ease;
     cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.badge:active {
-    transform: scale(0.9);
+.btn-pro:hover, .btn-pro:active {
+    background: #ff4d6d;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff4d6d;
 }
 
-/* Animación de pétalos cayendo */
-.heart-petal {
+#display-message {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffb7c5;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hidden { opacity: 0; }
+
+/* Animación de corazones explotando */
+.particle {
     position: fixed;
-    color: #ff4d6d;
-    user-select: none;
     pointer-events: none;
-    z-index: 100;
-    animation: fall linear forwards;
+    animation: explode 1s ease-out forwards;
 }
 
-@keyframes fall {
+@keyframes explode {
     to {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translate(var(--x), var(--y)) scale(0);
         opacity: 0;
     }
 }

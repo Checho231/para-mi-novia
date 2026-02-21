@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi niña 💖</title>
+    <title>Para mi reina 💖</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" onclick="mostrarSorpresa()">
+    <div class="container">
         <canvas id="treeCanvas"></canvas>
-        <div class="message">
-            <h1 id="pregunta">¿Cómo me besarías hoy?</h1>
-            <div id="respuesta-pro" class="badge">Toca el árbol...</div>
+        
+        <div class="ui-overlay">
+            <h1 id="main-title">Escoge tu castigo esta noche... 😏</h1>
+            <div class="options-grid">
+                <button class="btn-pro" onclick="accion('beso')">💋 Un beso robado</button>
+                <button class="btn-pro" onclick="accion('mordida')">🫦 Una mordidita</button>
+                <button class="btn-pro" onclick="accion('todo')">🔥 Todo conmigo</button>
+                <button class="btn-pro" onclick="accion('sorpresa')">🎁 Sorpresa picante</button>
+            </div>
+            <div id="display-message" class="hidden"></div>
         </div>
     </div>
     <script src="script.js"></script>
